@@ -2,6 +2,7 @@ import prisma from "../db/index.js";
 
 export async function createLevels(req, res) {
   try {
+    const { planId } = req.params;
     const levelsData = req.body.levels;
 
     for (const levelData of levelsData) {
@@ -31,9 +32,10 @@ export async function createLevels(req, res) {
       }
     }
 
-    res
-      .status(201)
-      .json({ message: "Levels and sublevels created successfully." });
+    return res.status(201).json({
+      success: true,
+      message: "Levels and sublevels created successfully.",
+    });
   } catch (error) {
     console.error("Error creating levels and sublevels:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -42,15 +44,18 @@ export async function createLevels(req, res) {
 
 export async function getLevels(req, res) {
   try {
+    const { planId } = req.params;
     const levels = await prisma.level.findMany({
-
-    })
+      where: {
+        planId: planId,
+      },
+    });
 
     return res.status(200).json({
-        success: true,
-        message: "Got all levels for plan",
-        levels
-    })
+      success: true,
+      message: "Got all levels for plan",
+      levels,
+    });
   } catch (error) {
     console.error("Error getting levels", error);
     res.status(500).json({ error: "Internal server error" });

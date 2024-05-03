@@ -14,17 +14,17 @@ export async function generateResponse(prompt) {
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant designed to output JSON.",
+          content: "You are helping me create lesson plans for users.",
         },
         { role: "user", content: prompt },
       ],
       model: "gpt-3.5-turbo-0125",
-      response_format: { type: "json_object" },
+    //   response_format: { type: "json_object" },
     });
-    console.log(completion.choices[0].message.content);
-    return completion.choices[0].message.content;
+    console.log(completion?.choices[0].message.content);
+    return completion?.choices[0].message.content;
   } catch (error) {
-    console.log("Error generating response")
+    console.log("Error generating response", error);
     return false;
   }
 }

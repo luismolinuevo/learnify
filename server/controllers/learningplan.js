@@ -1,5 +1,5 @@
-import { generatePlanPrompt } from "../helpers/prompts";
-import { generateResponse } from "../services/openai";
+import { generatePlanPrompt } from "../helpers/prompts.js";
+import { generateResponse } from "../services/openai.js";
 
 export async function generateLearningPlan(req, res) {
   try {
@@ -8,7 +8,7 @@ export async function generateLearningPlan(req, res) {
 
     if (skill) {
       //This is will create the prompt
-      let prompt = generateLearningPlan(
+      let prompt = await generatePlanPrompt(
         skill,
         skillLevel,
         dailyHours,
@@ -18,15 +18,20 @@ export async function generateLearningPlan(req, res) {
       );
 
       //This is get the response
-      let learingplan = generateResponse(prompt);
+      console.log(prompt)
+      
+      let learningplan = await generateResponse(prompt);
 
-      if (learingplan) {
+      console.log(learningplan)
+      if (learningplan && learningplan.length > 0) {
         return res.status(200).json({
           success: true,
           message: "Successfully created learning plan",
-          learingplan,
+          learningplan,
         });
       }
+
+
     } else {
       return res.status(404).json({
         success: false,

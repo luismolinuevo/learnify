@@ -16,5 +16,8 @@
     "express": "^4.19.2",
     "morgan": "^1.10.0",
     "openai": "^4.40.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.13.0"
   }
 }

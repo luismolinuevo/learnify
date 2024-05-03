@@ -55,11 +55,47 @@ export async function getLevels(req, res) {
       },
     });
 
-    return res.status(200).json({
-      success: true,
-      message: "Got all levels for plan",
-      levels,
+    if (levels) {
+      return res.status(200).json({
+        success: true,
+        message: "Got all levels for plan",
+        levels,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: "Unable to get levels",
+        levels,
+      });
+    }
+  } catch (error) {
+    console.error("Error getting levels", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
+
+export async function getSubLevel(req, res) {
+  try {
+    const { sublevelId } = req.params;
+    const sublevel = await prisma.sublevel.findUnique({
+      where: {
+        id: parseInt(sublevelId),
+      },
     });
+
+    if (sublevel) {
+      return res.status(200).json({
+        success: true,
+        message: "Got all levels for plan",
+        levels,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: "Unable to get sublevel",
+        levels,
+      });
+    }
   } catch (error) {
     console.error("Error getting levels", error);
     res.status(500).json({ error: "Internal server error" });

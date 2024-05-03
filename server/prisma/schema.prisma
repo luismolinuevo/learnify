@@ -22,7 +22,7 @@ model LearningPlan {
   deadline      String?
   whyLearn      String?
   learningStyle String[]
-  comments      String   @db.VarChar(3000)
+  comments      String?   @db.VarChar(3000)
   levels        Level[]
 }
 

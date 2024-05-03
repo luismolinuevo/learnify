@@ -1,3 +1,4 @@
+import prisma from "../db/index.js";
 import { generatePlanPrompt } from "../helpers/prompts.js";
 import { generateResponse } from "../services/openai.js";
 
@@ -28,12 +29,10 @@ export async function generateLearningPlan(req, res) {
         });
       } else {
         return res.status(200).json({
-            success: false,
-            message: "No learning plan created",
-        })
+          success: false,
+          message: "No learning plan created",
+        });
       }
-
-
     } else {
       return res.status(404).json({
         success: false,
@@ -42,6 +41,44 @@ export async function generateLearningPlan(req, res) {
     }
   } catch (error) {
     console.log("Error with generating learning plan", error);
+    return res.status(500).json({
+      success: false,
+      message: "There has been a server error",
+      error,
+    });
+  }
+}
+
+export async function createLearningPlan(req, res) {
+  try {
+    const { skill, skillLevel, dailyHours, deadline, whyLearn, learningStyle } =
+      req.body;
+
+    const newPlan = await prisma.learningPlan.create({
+      data: {
+        skill: skill,
+        skillLevel: skillLevel,
+        dailyHours: dailyHours,
+        deadline: deadline,
+        whyLearn: whyLearn,
+        learningStyle: learningStyle,
+      },
+    });
+
+    if (newPlan) {
+      return res.status(201).json({
+        success: true,
+        message: "Created new learning plan",
+        newPlan,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: "Unable to to create plan",
+      });
+    }
+  } catch (error) {
+    console.log("Error with creating learning plan", error);
     return res.status(500).json({
       success: false,
       message: "There has been a server error",

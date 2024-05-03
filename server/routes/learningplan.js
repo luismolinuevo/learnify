@@ -3,6 +3,7 @@ import * as learningplanControllers from "../controllers/learningplan.js";
 
 const router = Router();
 
-router.post("/learningplan", learningplanControllers.generateLearningPlan);
+router.post("/generatelearningplan", learningplanControllers.generateLearningPlan);
+router.post("/learningplan", learningplanControllers.createLearningPlan);
 
 export default router;

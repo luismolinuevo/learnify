@@ -26,17 +26,22 @@ model LearningPain {
 }
 
 model Level {
-  id          Int    @id @unique @default(autoincrement())
-  title       String
-  description String @db.VarChar(3000)
-  timeLine    String
-  project     Json?
+  id              Int       @id @default(autoincrement())
+  title           String
+  reason          String
+  what            String
+  hoursToComplete Int
+  sublevels       Sublevel[]
 }
 
-model SubLevel {
-  id          Int    @id @unique @default(autoincrement())
-  title       String
-  description String @db.VarChar(3000)
-  timeLine    String
-  project     Json?
+model Sublevel {
+  id            Int      @id @default(autoincrement())
+  title         String
+  what          String
+  how           String
+  resources     Json
+  level         Level    @relation(fields: [levelId], references: [id])
+  levelId       Int
+
+  @@index([levelId])
 }

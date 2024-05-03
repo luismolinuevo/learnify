@@ -12,6 +12,7 @@ export async function createLevels(req, res) {
           reason: levelData.reason,
           what: levelData.what,
           hoursToComplete: levelData.hours_to_complete,
+          plan: { connect: { id: parseInt(planId) } },
         },
       });
 
@@ -25,7 +26,7 @@ export async function createLevels(req, res) {
               what: sublevelData.what,
               how: sublevelData.how,
               resources: sublevelData.resources,
-              levelId: createdLevel.id,
+              level: { connect: { id: createdLevel.id } },
             },
           });
         }
@@ -47,7 +48,10 @@ export async function getLevels(req, res) {
     const { planId } = req.params;
     const levels = await prisma.level.findMany({
       where: {
-        planId: planId,
+        planId: parseInt(planId),
+      },
+      include: {
+        sublevels: true,
       },
     });
 

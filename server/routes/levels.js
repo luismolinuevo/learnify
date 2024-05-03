@@ -3,7 +3,7 @@ import * as levelsControllers from "../controllers/levels.js";
 
 const router = Router();
 
-router.post("/levels", levelsControllers.createLevels);
-router.get("/levels", levelsControllers.getLevels);
+router.post("/levels/:planId", levelsControllers.createLevels);
+router.get("/levels/:planId", levelsControllers.getLevels);
 
 export default router;

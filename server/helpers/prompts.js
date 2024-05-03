@@ -29,5 +29,9 @@ export async function generatePlanPrompt(
   
     The user is willing to commit ${dailyHours} hours per day. And wants to learn this in ${deadline}. Take the daily hours and deadline in to account when making the levels. 
     Make sure that the levels are actually doable in the time frame and skill level.
+
+    I want this is json format. I plan to save the levels and sublevels in a db
     `;
+
+  return prompt;
 }

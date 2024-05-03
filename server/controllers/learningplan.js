@@ -18,17 +18,19 @@ export async function generateLearningPlan(req, res) {
       );
 
       //This is get the response
-      console.log(prompt)
-      
       let learningplan = await generateResponse(prompt);
 
-      console.log(learningplan)
       if (learningplan && learningplan.length > 0) {
         return res.status(200).json({
           success: true,
           message: "Successfully created learning plan",
           learningplan,
         });
+      } else {
+        return res.status(200).json({
+            success: false,
+            message: "No learning plan created",
+        })
       }
 
 

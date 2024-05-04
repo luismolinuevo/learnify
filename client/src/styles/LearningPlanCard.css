@@ -18,6 +18,7 @@
    display: inline-block;
    padding: 1.8em 1.8em;
    border: 1px solid black;
+   width: 300px;
 }
 
 .bottomRow {
@@ -30,7 +31,10 @@
    display: flex;
    justify-content: center;
    align-items: center;
+
 }
+
+
 
 .continuePlan {
    background: #47b2c0;
@@ -41,4 +45,5 @@
    border: 1px solid #47b2c0;
    cursor: pointer;
    border-radius: 0.2em;
+   text-decoration: none;
  }

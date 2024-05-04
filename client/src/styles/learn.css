@@ -1,5 +1,6 @@
 .continue {
     width: 20%;
+    text-decoration: none;
     background-color: #47B2C0;
     color: white;
     align-self: flex-end;
@@ -10,4 +11,13 @@
     padding: 0.7em;
     border: 0;
     border-radius: 5px;
+}
+
+.topic {
+    border: 0;
+    padding: 0.5em 1em;
+    margin: 0.2em 1em;
+    border-radius: 15px;
+    background-color: #F3F4F6;
+
 }

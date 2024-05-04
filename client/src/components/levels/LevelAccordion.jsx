@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/LevelAccordion.css";
 import { Link } from "react-router-dom";
+import CompleteLevel from "./CompleteLevel";
 
 function LevelAccordion({ levels }) {
   const [expandedItems, setExpandedItems] = useState([]);
@@ -37,7 +38,9 @@ function LevelAccordion({ levels }) {
               <div className="accordion-content">
                 {level.sublevels.map((sublevel, subIndex) => (
                   <div className="sublevel" key={subIndex}>
-                    <span>Star</span>
+                    <span>
+                      <CompleteLevel isCompleted={sublevel?.isCompleted}/>
+                    </span>
                     <Link
                       to={`/sublevel/${sublevel?.id}`}
                       className="sublevel-title"

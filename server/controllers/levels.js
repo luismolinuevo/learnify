@@ -28,6 +28,7 @@ export async function createLevels(req, res) {
               what: sublevelData.what,
               how: sublevelData.how,
               resources: sublevelData.resources,
+              project: sublevelData.project,
               level: { connect: { id: createdLevel.id } },
             },
           });

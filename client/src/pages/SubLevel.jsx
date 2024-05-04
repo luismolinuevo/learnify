@@ -14,7 +14,7 @@ export default function SubLevel() {
           const response = await getSubLevel(id);
 
           if (response.success) {
-            console.log(response)
+            console.log(response);
             setSubLevel(response.sublevel);
           }
         }
@@ -38,29 +38,31 @@ export default function SubLevel() {
             <p className="sublevel-info">{sublevel?.how}</p>
             <h3 className="sublevel-heading">Resources:</h3>
             <ul className="sublevel-resources">
-              {/* {sublevel?.resources && sublevel?.resources.map((resource, index) => (
+              {sublevel?.resources && sublevel?.resources.map((resource, index) => (
                 <li key={index}>
                   <a href={resource.link} target="_blank" rel="noopener noreferrer">
                     {resource.title}
                   </a>
                 </li>
-              ))} */}
+              ))}
             </ul>
-            <h3 className="sublevel-heading">Project:</h3>
-            {/* <div className="sublevel-project">
-              <h4 className="sublevel-project-title">{sublevel.project.title}</h4>
-              <p className="sublevel-project-description">{sublevel.project.description}</p>
-              <h5 className="sublevel-project-requirements">Requirements:</h5>
-              <ul className="sublevel-project-requirements-list">
-                {sublevel?.project && sublevel?.project?.requirements.map((requirement, index) => (
-                  <li key={index}>{requirement}</li>
-                ))}
-              </ul>
-            </div> */}
-
+            {sublevel?.project && (
+              <>
+                <h1 className="sublevel-heading">Project:</h1>
+                <h1 className="sublevel-info">{sublevel?.project.title}</h1>
+                <h3 className="sublevel-info">{sublevel?.project.description}</h3>
+                <h4 className="sublevel-heading">Project Requirements:</h4>
+                <ul className="sublevel-resources">
+                  {sublevel.project.requirements && sublevel.project.requirements.map((requirement, index) => (
+                    <li key={index} className="sublevel-info">{requirement}</li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </>
       )}
     </div>
   );
+  
 }

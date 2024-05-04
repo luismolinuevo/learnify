@@ -45,6 +45,7 @@ model Sublevel {
   what      String
   how       String
   resources Json?
+  project   Json?
   level     Level  @relation(fields: [levelId], references: [id])
   levelId   Int
   isCompleted Boolean @default(false)

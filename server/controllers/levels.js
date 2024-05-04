@@ -101,3 +101,36 @@ export async function getSubLevel(req, res) {
     res.status(500).json({ error: "Internal server error" });
   }
 }
+
+export async function editSubLevel(req, res) {
+  try {
+    const { sublevelId } = req.params;
+    const { isCompleted } = req.body;
+
+    const sublevel = await prisma.sublevel.updateMany({
+      where: {
+        id: parseInt(sublevelId),
+      },
+      data: {
+        isCompleted: isCompleted
+      }
+    });
+
+    if (sublevel) {
+      return res.status(200).json({
+        success: true,
+        message: "Updated sublevel success",
+        levels,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: "Unable to update sublevel",
+        levels,
+      });
+    }
+  } catch (error) {
+    console.error("Error getting levels", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}

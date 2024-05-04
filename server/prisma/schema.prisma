@@ -47,6 +47,7 @@ model Sublevel {
   resources Json?
   level     Level  @relation(fields: [levelId], references: [id])
   levelId   Int
+  isCompleted Boolean @default(false)
 
   @@index([levelId])
 }

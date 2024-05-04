@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from './App.jsx'
-import './index.css'
+import './styles/App.css';
 //Add your imports from "/pages" below this line
 import AuthLayout from './pages/AuthLayout.jsx';
+import Learn from './components/signupFields/learn.jsx';
+import Level from './components/signupFields/level.jsx';
+import Daily from './components/signupFields/daily.jsx';
+import Success from './components/signupFields/success.jsx';
 
 
 
@@ -22,19 +25,19 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "learn",
-                        element: "",
+                        element: <Learn />,
                     },
                     {
                         path: "level",
-                        element: "",
+                        element: <Level />,
                     },
                     {
                         path: "daily",
-                        element: "",
+                        element: <Daily />,
                     },
                     {
                         path: "success",
-                        element: "",
+                        element: <Success />,
                     },
                 ],
             },

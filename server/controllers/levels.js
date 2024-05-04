@@ -120,13 +120,12 @@ export async function editSubLevel(req, res) {
       return res.status(200).json({
         success: true,
         message: "Updated sublevel success",
-        levels,
+        sublevel,
       });
     } else {
       return res.status(404).json({
         success: false,
         message: "Unable to update sublevel",
-        levels,
       });
     }
   } catch (error) {

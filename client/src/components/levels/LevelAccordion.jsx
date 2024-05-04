@@ -39,7 +39,10 @@ function LevelAccordion({ levels }) {
                 {level.sublevels.map((sublevel, subIndex) => (
                   <div className="sublevel" key={subIndex}>
                     <span>
-                      <CompleteLevel isCompleted={sublevel?.isCompleted}/>
+                      <CompleteLevel
+                        isCompleted={sublevel?.isCompleted}
+                        sublevelId={sublevel?.id}
+                      />
                     </span>
                     <Link
                       to={`/sublevel/${sublevel?.id}`}

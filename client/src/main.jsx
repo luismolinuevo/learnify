@@ -6,6 +6,8 @@ import "./index.css";
 //Add your imports from "/pages" below this line
 import AuthLayout from "./pages/AuthLayout.jsx";
 
+import Course from "./pages/Course.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/auth",
@@ -40,14 +42,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Layout />,
+    // element: <Layout />,
     children: [
         {
             path: "/",
             element: ""
         },
         {
-            path: "lessonplan/:id",
+            path: "/lessonplan/:id",
+            element: <Course/>
         }
     ]
   },

@@ -1,0 +1,16 @@
+.learningStyle {
+    border: 1px solid #a3a3a3;
+    color: #757575;
+    border-radius: 5px;
+    background-color: white;
+    font-size: x-small;
+    padding: 0.5em 1em;
+    text-align: center;
+    max-height: 2em;
+}
+
+.learningStyle.active {
+    color:#276971;
+    border-color: #7DC9D3;
+    background-color: rgba(125, 201, 211, 0.2);
+}

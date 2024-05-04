@@ -1,0 +1,22 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 2em;
+    font-size: 1.5em;
+    color: #9095A1;
+
+}
+
+.nav-subcontainer {
+    display: flex;
+    align-items: center;
+    gap: 7em;
+    
+}
+
+.nav-links {
+    text-decoration: none;
+    text-decoration: none;
+}

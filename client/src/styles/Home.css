@@ -27,7 +27,12 @@
 
 .add-plan p {
     color: #47B2C0;
- font-size: 0.8em;
+ 
+}
+
+.add-plan {
+    text-decoration: none;
+    text-align: center;
 }
 .learningplan-section {
     display: flex; 

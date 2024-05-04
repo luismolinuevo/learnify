@@ -5,6 +5,8 @@ export async function createLevels(req, res) {
     const { planId } = req.params;
     const levelsData = req.body.levels;
 
+    // const jsonString = JSON.stringify(levelsData);
+
     for (const levelData of levelsData) {
       const createdLevel = await prisma.level.create({
         data: {
@@ -112,8 +114,8 @@ export async function editSubLevel(req, res) {
         id: parseInt(sublevelId),
       },
       data: {
-        isCompleted: isCompleted
-      }
+        isCompleted: isCompleted,
+      },
     });
 
     if (sublevel) {

@@ -9,12 +9,13 @@ export default function CommunityCard(props) {
     const [hasJoined, setHasJoined] = useState(false);
     return (
         <div className="community-card">
-            <div className="card-image-container"><img src="/images/communitycardicon.png" alt="" lclassName="card-image"/></div>
+            <div className="card-image-container"><img src="/images/communitycardicon.png" alt="" className="card-image"/></div>
             <p className="card-title">{title}</p>
             <p className="card-context">People Are Talking About</p>
             <div className="button-container">
                 <Button onClick={() => setHasJoined(!hasJoined)} style={buttonStyle}>Join</Button>
             </div>
+            <img src="/images/communitycardavatar.png" alt="" className="community-avatars" />
         </div>
     )
 }

@@ -5,7 +5,14 @@
     font-family: "Epilogue";
 }
 
-.container {
-    margin: 1rem;
-    padding: 0.5rem;
+.more-button {
+    margin: auto;
+    font-size: 30px;
+    border: none;
+    background: none;
+
+}
+
+.icons {
+    font-size: 40px;
 }

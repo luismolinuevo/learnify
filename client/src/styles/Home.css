@@ -1,0 +1,42 @@
+.home-container {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    margin: 2em 4em;
+}
+
+.home-section {
+    display: flex; 
+    gap: 3em;
+}
+
+
+.subsection-title {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+.learningplan-container {
+    display: flex;
+    gap: 2.5em;
+}
+.add-plan-icon {
+    color: #47B2C0;
+    font-size: 70px;
+}
+
+.add-plan p {
+    color: #47B2C0;
+ font-size: 0.8em;
+}
+.learningplan-section {
+    display: flex; 
+    margin-bottom: 3em;
+    /* gap: 0em; */
+}
+
+.more-button-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}

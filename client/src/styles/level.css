@@ -1,0 +1,30 @@
+.levelOption {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    border: 1px solid #a3a3a3;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.levelOption h3 {
+    font-weight: 500;
+}
+
+.levelOption p {
+    color: #9095A1;
+    font-weight: 600;
+}
+
+.levelOption.active {
+    background-color: rgba(125, 201, 211, 0.8);
+
+}
+
+.levelIcon {
+    color: #9095A1;
+}
+
+.levelIcon.active {
+    color: #47B2C0;
+}

@@ -138,8 +138,8 @@ export default function Daily() {
                 <a
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
-                    // href="/auth/signup/success"
-                    onClick={submitLearningPlan}
+                    href="/auth/signup/success"
+                    // onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{
                         height: "0.7em", transform: "translateY(-1px)"

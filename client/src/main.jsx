@@ -11,6 +11,7 @@ import Success from "./components/signupFields/success.jsx";
 import Layout from "./pages/Layout.jsx";
 
 import Course from "./pages/Course.jsx";
+import SubLevel from "./pages/SubLevel.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "lessonplan/:id",
         element: <Course />,
+      },
+      {
+        path: "sublevel/:id",
+        element: <SubLevel />,
       },
     ],
   },

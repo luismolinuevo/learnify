@@ -5,6 +5,7 @@ import { getLevels } from "../lib/levels";
 import { Link, useParams } from "react-router-dom";
 import LevelAccordion from "../components/levels/LevelAccordion";
 import "../styles/LearningPlan.css"
+import DateCalendarValue from "../components/general/Calendar";
 
 export default function Course() {
   let { id } = useParams();
@@ -55,7 +56,9 @@ export default function Course() {
         </div>
         <LevelAccordion levels={levels} />
       </div>
-      <div></div>
+      <div>
+        <DateCalendarValue/>
+      </div>
       <div></div>
     </div>
   );

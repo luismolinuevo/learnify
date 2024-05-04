@@ -1,3 +1,5 @@
 .learning-plan {
     margin: 2em 4em;
+    display: flex;
+    justify-content: space-between;
 }

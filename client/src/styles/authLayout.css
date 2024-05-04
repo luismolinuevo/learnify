@@ -25,8 +25,15 @@
 
 .stepsContainer {
     display: flex;
+    gap: 0.3em;
 }
 .step {
     background-color:#DEE1E6;
-    
+    height: 0.4em;
+    width: 2.5em;
+    border-radius: 5px;
+}
+
+.step.active {
+    background-color: #47B2C0;
 }

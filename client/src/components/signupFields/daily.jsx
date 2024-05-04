@@ -52,6 +52,14 @@ export default function Daily() {
         console.log(activeStyles);
     };
 
+    function setDailyGoals(e) {
+        sessionStorage.setItem("daily", e.target.value);
+    };
+
+    function setDeadLine(e) {
+        sessionStorage.setItem("deadline", e.target.value);
+    };
+
     return (
         <Container sx={{
             display: "flex", flexDirection: "column", height: "100%",
@@ -69,11 +77,12 @@ export default function Daily() {
                     min={10}
                     max={120}
                     defaultValue={60}
+                    onChange={setDailyGoals}
                 />
             </Container>
             <Container sx={{ display: "flex", flexDirection: "column" }}>
                 <h2>Set a deadline</h2>
-                <Input aria-label="Date" type="date" sx={{ width: "60%", color: "#47B2C0" }} />
+                <Input onChange={setDeadLine} aria-label="Date" type="date" sx={{ width: "60%", color: "#47B2C0" }} />
             </Container>
             <Container sx={{ display: "flex", flexDirection: "column", gap: "0.5em" }}>
                 <h2>How do you prefer learning a new topic?</h2>

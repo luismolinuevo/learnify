@@ -4,3 +4,15 @@
     box-sizing: border-box;
     font-family: "Epilogue";
 }
+
+.more-button {
+    margin: auto;
+    font-size: 30px;
+    border: none;
+    background: none;
+
+}
+
+.icons {
+    font-size: 40px;
+}

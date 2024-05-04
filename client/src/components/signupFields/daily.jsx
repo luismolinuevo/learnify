@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import "../../styles/daily.css";
 import { useState } from "react";
+import { createLearningPlan } from "../../lib/learningplan";
 
 export default function Daily() {
     const [activeStyles, setActiveStyles] = useState([]);
@@ -36,7 +37,7 @@ export default function Daily() {
         "Group setting", "With illustrations", "Concepts", "Real world experience", "Step-by-step"
     ];
 
-    function selectActiveStyle(e) {
+    function selectActiveStyleAndSet(e) {
         let style = e.target.innerText;
         let styles;
         if (activeStyles.includes(style)) {
@@ -49,7 +50,32 @@ export default function Daily() {
             };
         };
         setActiveStyles(styles);
+        sessionStorage.setItem("styles", styles);
         console.log(activeStyles);
+    };
+
+    function setDailyGoals(e) {
+        sessionStorage.setItem("daily", e.target.value);
+    };
+
+    function setDeadLine(e) {
+        sessionStorage.setItem("deadline", e.target.value);
+    };
+
+    async function submitLearningPlan() {
+        console.log("test")
+        const plan = {
+            skill: sessionStorage.getItem("topics"),
+            skillLevel: sessionStorage.getItem("level"),
+            dailyHours: (sessionStorage.getItem("daily") / 60).toString(),
+            deadline: sessionStorage.getItem("deadline"),
+            whyLearn: sessionStorage.getItem("reasons"),
+            learningStyle: sessionStorage.getItem("styles")
+        };
+
+        const data = await createLearningPlan(plan);
+        console.log(data)
+        console.log("test2")
     };
 
     return (
@@ -69,11 +95,12 @@ export default function Daily() {
                     min={10}
                     max={120}
                     defaultValue={60}
+                    onChange={setDailyGoals}
                 />
             </Container>
             <Container sx={{ display: "flex", flexDirection: "column" }}>
                 <h2>Set a deadline</h2>
-                <Input aria-label="Date" type="date" sx={{ width: "60%", color: "#47B2C0" }} />
+                <Input onChange={setDeadLine} aria-label="Date" type="date" sx={{ width: "60%", color: "#47B2C0" }} />
             </Container>
             <Container sx={{ display: "flex", flexDirection: "column", gap: "0.5em" }}>
                 <h2>How do you prefer learning a new topic?</h2>
@@ -83,7 +110,7 @@ export default function Daily() {
                         learningStyles.slice(0, 6).map((style, i) => {
                             return (
                                 <div
-                                    onClick={selectActiveStyle}
+                                    onClick={selectActiveStyleAndSet}
                                     key={i}
                                     className={activeStyles.includes(style) ? "learningStyle active" : "learningStyle"}
                                 >
@@ -98,7 +125,7 @@ export default function Daily() {
                         learningStyles.slice(6).map((style, i) => {
                             return (
                                 <div
-                                    onClick={selectActiveStyle}
+                                    onClick={selectActiveStyleAndSet}
                                     key={i + 10}
                                     className={activeStyles.includes(style) ? "learningStyle active" : "learningStyle"}
                                 >
@@ -111,7 +138,8 @@ export default function Daily() {
                 <a
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
-                    href="/auth/signup/success"
+                    // href="/auth/signup/success"
+                    onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{
                         height: "0.7em", transform: "translateY(-1px)"

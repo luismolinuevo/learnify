@@ -47,16 +47,19 @@ export default function Level() {
         }
     };
 
-    function selectActive(number) {
+    function selectActiveAndSet(number) {
         switch (number) {
             case 1:
                 setActive([true, false, false]);
+                sessionStorage.setItem("level", "Beginner");
                 break;
             case 2:
                 setActive([false, true, false]);
+                sessionStorage.setItem("level", "Intermediate");
                 break;
             case 3:
                 setActive([false, false, true]);
+                sessionStorage.setItem("level", "Advanced");
                 break;
         };
     };
@@ -148,21 +151,21 @@ export default function Level() {
 
             }}>
                 <h2>What is your level?</h2>
-                <div onClick={() => selectActive(1)} className={active[0] ? "levelOption active" : "levelOption"}>
+                <div onClick={() => selectActiveAndSet(1)} className={active[0] ? "levelOption active" : "levelOption"}>
                     <BusinessCenterIcon className="levelIcon" />
                     <div>
                         <h3>Beginner</h3>
                         <p>I am new to{topics}</p>
                     </div>
                 </div>
-                <div onClick={() => selectActive(2)} className={active[1] ? "levelOption active" : "levelOption"}>
+                <div onClick={() => selectActiveAndSet(2)} className={active[1] ? "levelOption active" : "levelOption"}>
                     <BeenhereIcon className="levelIcon" />
                     <div>
                         <h3>Intermediate</h3>
                         <p>I have some knowledge of{topics}</p>
                     </div>
                 </div>
-                <div onClick={() => selectActive(3)} className={active[2] ? "levelOption active" : "levelOption"}>
+                <div onClick={() => selectActiveAndSet(3)} className={active[2] ? "levelOption active" : "levelOption"}>
                     <EngineeringIcon className="levelIcon" />
                     <div>
                         <h3>Advanced</h3>

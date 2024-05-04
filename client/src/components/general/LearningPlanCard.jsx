@@ -27,7 +27,7 @@ export default function LearningPlanCard({ learningPlan }) {
           <p>Advanced</p>
         </div>
         <div className="continueContainer">
-          <button className="continue">Continue</button>
+          <button className="continuePlan">Continue</button>
         </div>
       </div>
     </div>

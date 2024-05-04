@@ -2,11 +2,13 @@
    display: flex;
    gap: 0.2em;
    align-items: center;
+   font-size: 1.2em;
+   
 }
 
 .skillLevelSvg {
-   width: 30px;
-   height: 30px;
+   width: 20px;
+   height: 20px;
 
 }
 .learningCardContainer {
@@ -14,22 +16,28 @@
    background: rgba(125, 201, 211, 0.59);
    /* width: 12em; */
    display: inline-block;
-   padding: 0.1em 1.8em;
+   padding: 1.8em 1.8em;
+   border: 1px solid black;
 }
 
 .bottomRow {
    display: flex;
-   gap: 0.5em;
+   gap: 0.6em;
+   align-items: center;
+}
+.continueContainer {
+   display: flex;
+   justify-content: center;
    align-items: center;
 }
 
-.continue {
-   background:#47B2C0;
+.continuePlan {
+   background: #47b2c0;
    color: white;
    padding: 0.2em 0.5em;
    font-size: 1em;
    outline: none;
-   border: none;
+   border: 1px solid #47b2c0;
    cursor: pointer;
    border-radius: 0.2em;
-}
+ }

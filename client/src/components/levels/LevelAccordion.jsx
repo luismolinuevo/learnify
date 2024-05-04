@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import '../../styles/LevelAccordion.css'
+import React, { useState } from "react";
+import "../../styles/LevelAccordion.css";
+import { Link } from "react-router-dom";
 
 function LevelAccordion({ levels }) {
   const [expandedItems, setExpandedItems] = useState([]);
@@ -18,12 +19,18 @@ function LevelAccordion({ levels }) {
         levels.map((level, index) => (
           <div key={index} className="accordion-item">
             <div
-              className={`accordion-header ${expandedItems.includes(index) ? 'expanded' : ''}`}
+              className={`accordion-header ${
+                expandedItems.includes(index) ? "expanded" : ""
+              }`}
               onClick={() => toggleAccordion(index)}
             >
               <div className="accordion-title">{level.title}</div>
               <div className="accordion-icon">
-                {expandedItems.includes(index) ? <span>&#9650;</span> : <span>&#9660;</span>}
+                {expandedItems.includes(index) ? (
+                  <span>&#9650;</span>
+                ) : (
+                  <span>&#9660;</span>
+                )}
               </div>
             </div>
             {expandedItems.includes(index) && (
@@ -31,7 +38,12 @@ function LevelAccordion({ levels }) {
                 {level.sublevels.map((sublevel, subIndex) => (
                   <div className="sublevel" key={subIndex}>
                     <span>Star</span>
-                    <div className="sublevel-title">{sublevel.title}</div>
+                    <Link
+                      to={`/sublevel/${sublevel?.id}`}
+                      className="sublevel-title"
+                    >
+                      {sublevel.title}
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -46,4 +58,3 @@ function LevelAccordion({ levels }) {
 }
 
 export default LevelAccordion;
-

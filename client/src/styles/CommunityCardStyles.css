@@ -24,7 +24,7 @@
 }
 
 .community-card {
-    height: 350px;
+    height: 300px;
     width: calc(25% - 20px); /* Calculate 25% width minus the padding */
     margin-bottom: 20px; /* Add margin between cards */
     border: 1px solid #9D76E9;
@@ -35,7 +35,7 @@
 }
 
 .card-image {
-    margin: 2rem auto;
+    margin: 1rem auto;
     border-radius: 50px;
     background-color: #9D76E9;
     height: 75px;

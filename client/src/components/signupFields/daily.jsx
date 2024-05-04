@@ -63,16 +63,19 @@ export default function Daily() {
     };
 
     async function submitLearningPlan() {
+        console.log("test")
         const plan = {
             skill: sessionStorage.getItem("topics"),
             skillLevel: sessionStorage.getItem("level"),
-            dailyHours: (sessionStorage.get("daily") / 60).toString(),
+            dailyHours: (sessionStorage.getItem("daily") / 60).toString(),
             deadline: sessionStorage.getItem("deadline"),
             whyLearn: sessionStorage.getItem("reasons"),
             learningStyle: sessionStorage.getItem("styles")
         };
 
-        await createLearningPlan(plan);
+        const data = await createLearningPlan(plan);
+        console.log(data)
+        console.log("test2")
     };
 
     return (
@@ -135,7 +138,7 @@ export default function Daily() {
                 <a
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
-                    href="/auth/signup/success"
+                    // href="/auth/signup/success"
                     onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{

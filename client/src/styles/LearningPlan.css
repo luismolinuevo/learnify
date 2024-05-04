@@ -28,5 +28,23 @@
     display: flex;
     /* justify-content: end; */
     align-items: end;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+}
+
+.course-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 6em;
+}
+.plan-progress-container {
+    display: flex;
+    justify-content: end;
+}
+.plan-progress {
+    height: 300px;
+    width: 300px;
+}
+
+.streak {
+    text-align: center;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/LearningPlanCard.css";
+import { Link } from "react-router-dom";
 
 export default function LearningPlanCard({ learningPlan }) {
   if (!learningPlan) {
@@ -59,7 +60,7 @@ export default function LearningPlanCard({ learningPlan }) {
             <p>{learningPlan.skillLevel}</p>
           </div>
           <div className="continueContainer">
-            <button className="continuePlan">Continue</button>
+            <Link to={`/lessonplan/${learningPlan.id}`} className="continuePlan">Continue</Link>
           </div>
         </div>
       </div>

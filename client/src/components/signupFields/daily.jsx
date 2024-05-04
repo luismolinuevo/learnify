@@ -70,7 +70,7 @@ export default function Daily() {
             dailyHours: (sessionStorage.getItem("daily") / 60).toString(),
             deadline: sessionStorage.getItem("deadline"),
             whyLearn: sessionStorage.getItem("reasons"),
-            learningStyle: sessionStorage.getItem("styles")
+            learningStyle: sessionStorage.getItem("styles").split(",")
         };
 
         const data = await createLearningPlan(plan);

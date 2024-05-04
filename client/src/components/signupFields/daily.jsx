@@ -75,6 +75,7 @@ export default function Daily() {
 
         const data = await createLearningPlan(plan);
         console.log(data)
+        window.location.href = "/auth/signup/success";
         console.log("test2")
     };
 
@@ -138,8 +139,8 @@ export default function Daily() {
                 <a
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
-                    href="/auth/signup/success"
-                    // onClick={submitLearningPlan}
+                    // href="/auth/signup/success"
+                    onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{
                         height: "0.7em", transform: "translateY(-1px)"

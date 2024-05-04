@@ -1,0 +1,50 @@
+.learning-plan {
+    margin: 2em 4em; /* Adjust margin to center vertically */
+    display: flex;
+     /* Set max-width if you want to limit the width */
+}
+
+.learning-plan > div {
+    flex-grow: 1; /* Each div will take up equal space */
+    margin: 0 1em; /* Add margin around each div */
+}
+
+.learning-plan > div:first-child,
+.learning-plan > div:last-child {
+    margin: 0; /* Remove margin for the first and last div */
+}
+
+/* .plan-section {
+    width: 33.3%;
+    
+} */
+.plan-section {
+    width: 33.3%;
+    display: flex;
+    flex-direction: column; 
+}
+
+.course-quiz {
+    display: flex;
+    /* justify-content: end; */
+    align-items: end;
+    /* overflow-y: scroll; */
+}
+
+.course-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 6em;
+}
+.plan-progress-container {
+    display: flex;
+    justify-content: end;
+}
+.plan-progress {
+    height: 300px;
+    width: 300px;
+}
+
+.streak {
+    text-align: center;
+}

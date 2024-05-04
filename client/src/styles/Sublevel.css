@@ -1,0 +1,73 @@
+.sublevel-container {
+    margin: 2em 4em;
+}
+
+/* Sublevel.css */
+
+.sublevel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .sublevel-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sublevel-heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sublevel-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .sublevel-resources {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sublevel-resources li {
+    margin-bottom: 5px;
+  }
+  
+  .sublevel-resources a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .sublevel-resources a:hover {
+    text-decoration: underline;
+  }
+  
+  .sublevel-project-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sublevel-project-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .sublevel-project-requirements {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sublevel-project-requirements-list {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .sublevel-project-requirements-list li {
+    margin-bottom: 5px;
+  }
+  

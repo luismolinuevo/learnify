@@ -1,6 +1,5 @@
 import {
-    Container, TextField, SvgIcon,
-    InputAdornment, Box
+    Container, Box
 } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import "../../styles/learn.css";
@@ -48,13 +47,17 @@ export default function Learn() {
         setSearchError(false);
     }
 
+    function setTopics() {
+        sessionStorage.setItem("topics", search);
+    }
+
     return (
         <Container sx={{
             display: "flex", flexDirection: "column", height: "100%",
             justifyContent: "space-around"
         }}>
             <Box sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
-                <Steps number="1" />
+                <Steps number={[1]} />
                 <p>1 of 4</p>
                 <p>Tell us a bit about yourself!</p>
                 <h3>What would you like to learn?</h3>
@@ -122,7 +125,7 @@ export default function Learn() {
                 className="continue"
                 style={{ pointerEvents: search == "" || searchError ? "none" : "" }}
                 href="/auth/signup/level"
-                onClick={validateSearch}>
+                onClick={setTopics}>
                 Continue <ArrowForwardIcon sx={{
                     height: "0.7em", transform: "translateY(-1px)"
                 }} />

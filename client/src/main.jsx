@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './styles/App.css';
 //Add your imports from "/pages" below this line
@@ -9,20 +9,18 @@ import Level from './components/signupFields/level.jsx';
 import Daily from './components/signupFields/daily.jsx';
 import Success from './components/signupFields/success.jsx';
 
-
-
 const router = createBrowserRouter([
-    {
-        path: "/auth",
-        element: <AuthLayout />,
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        element: "",
+      },
+      {
+        path: "signup",
         children: [
-            {
-                path: "login",
-                element: "",
-            },
-            {
-                path: "signup",
-                children: [
                     {
                         path: "learn",
                         element: <Learn />,
@@ -39,14 +37,27 @@ const router = createBrowserRouter([
                         path: "success",
                         element: <Success />,
                     },
-                ],
-            },
         ],
-    },
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+        {
+            path: "/",
+            element: ""
+        },
+        {
+            path: "lessonplan/:id",
+        }
+    ]
+  },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

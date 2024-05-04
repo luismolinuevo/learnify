@@ -56,3 +56,27 @@ export const getLevels = async (planId) => {
       throw error;
     }
   };
+
+  export const getSubLevel = async (sublevelId) => {
+    try {
+      const level = await fetch(
+        `${import.meta.env.VITE_PUBLIC_BACKEND_URL}/api/sublevel/${sublevelId}`,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      if (level.ok) {
+        const res = await level.json();
+  
+        return res;
+      }
+    } catch (error) {
+      console.log(error.message);
+      return error;
+    }
+  };

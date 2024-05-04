@@ -46,7 +46,7 @@ export const updateSubLevel = async (data, sublevelId) => {
 
       throw new Error("Edit sublevel failed");
     }
-
+    
     // If the response is successful, return the data (if needed)
     const responseData = await response.json();
     return responseData;
@@ -56,6 +56,30 @@ export const updateSubLevel = async (data, sublevelId) => {
     throw error;
   }
 };
+
+  export const getSubLevel = async (sublevelId) => {
+    try {
+      const level = await fetch(
+        `${import.meta.env.VITE_PUBLIC_BACKEND_URL}/api/sublevel/${sublevelId}`,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      if (level.ok) {
+        const res = await level.json();
+  
+        return res;
+      }
+    } catch (error) {
+      console.log(error.message);
+      return error;
+    }
+  };
 
 export const createlevels = async (data, planId) => {
   try {
@@ -91,3 +115,4 @@ export const createlevels = async (data, planId) => {
     throw error;
   }
 };
+

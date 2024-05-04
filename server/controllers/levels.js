@@ -5,6 +5,8 @@ export async function createLevels(req, res) {
     const { planId } = req.params;
     const levelsData = req.body.levels;
 
+    // const jsonString = JSON.stringify(levelsData);
+
     for (const levelData of levelsData) {
       const createdLevel = await prisma.level.create({
         data: {
@@ -87,13 +89,13 @@ export async function getSubLevel(req, res) {
       return res.status(200).json({
         success: true,
         message: "Got all levels for plan",
-        levels,
+        sublevel,
       });
     } else {
       return res.status(404).json({
         success: false,
         message: "Unable to get sublevel",
-        levels,
+        sublevel,
       });
     }
   } catch (error) {
@@ -112,8 +114,8 @@ export async function editSubLevel(req, res) {
         id: parseInt(sublevelId),
       },
       data: {
-        isCompleted: isCompleted
-      }
+        isCompleted: isCompleted,
+      },
     });
 
     if (sublevel) {

@@ -12,6 +12,7 @@ import Layout from "./pages/Layout.jsx";
 import Home from "./pages/Home.jsx"
 
 import Course from "./pages/Course.jsx";
+import SubLevel from "./pages/SubLevel.jsx";
 
 const router = createBrowserRouter([
   {
@@ -58,9 +59,9 @@ const router = createBrowserRouter([
         element: <Course />,
       },
       {
-        // path: "/home",
-        // element: <Home />
-      }
+        path: "sublevel/:id",
+        element: <SubLevel />,
+      },
     ],
   },
 ]);

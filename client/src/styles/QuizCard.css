@@ -1,0 +1,13 @@
+.quiz-card-container {
+    border: 1px solid black;
+    padding: 1em 1.5em;
+    /* display: inline-block; */
+    margin-left: 1em;
+    
+}
+
+.quiz-card-level {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}

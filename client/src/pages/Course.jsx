@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import LevelAccordion from "../components/levels/LevelAccordion";
 import "../styles/LearningPlan.css"
 import DateCalendarValue from "../components/general/Calendar";
+import QuizCard from "../components/levels/QuizCard";
 
 export default function Course() {
   let { id } = useParams();
@@ -50,16 +51,20 @@ export default function Course() {
   return (
     <div className="learning-plan">
       <div>
-        <div>
+        <div className="plan-section">
+            <div>
           <p>Your learning path</p>
           <LearningPlanCard learningPlan={learningPlan} />
+          </div>
         </div>
         <LevelAccordion levels={levels} />
       </div>
-      <div>
+      <div className="plan-section">
         <DateCalendarValue/>
       </div>
-      <div></div>
+      <div className="plan-section course-quiz">
+        <QuizCard levels={levels}/>
+      </div>
     </div>
   );
 }

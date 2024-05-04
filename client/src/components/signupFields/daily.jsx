@@ -1,4 +1,4 @@
-import { Container, Box, Input, Grid } from "@mui/material"
+import { Container, Box, Input } from "@mui/material"
 import Steps from "./steps";
 import Slider from '@mui/material/Slider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -34,21 +34,23 @@ export default function Daily() {
     const learningStyles = [
         "Logic", "Interaction", "Reading", "Listening", "Hands on projects",
         "Group setting", "With illustrations", "Concepts", "Real world experience", "Step-by-step"
-    ]
+    ];
 
     function selectActiveStyle(e) {
         let style = e.target.innerText;
-        let styles = activeStyles;
-        if (styles.includes(style)) {
-            styles.splice(styles.indexOf(style), 1);
+        let styles;
+        if (activeStyles.includes(style)) {
+            styles = activeStyles.filter(activeStyle => activeStyle !== style)
         } else {
-            if (styles.length < 5) {
-                styles.push(style);
-            }
-        }
+            if (activeStyles.length < 5) {
+                styles = [...activeStyles, style];
+            } else {
+                styles = activeStyles;
+            };
+        };
         setActiveStyles(styles);
         console.log(activeStyles);
-    }
+    };
 
     return (
         <Container sx={{

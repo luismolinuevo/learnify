@@ -3,6 +3,7 @@ import LearningPlanCard from "../components/general/LearningPlanCard";
 import { getLearningPlan } from "../lib/learningplan";
 import { getLevels } from "../lib/levels";
 import { Link, useParams } from "react-router-dom";
+import LevelAccordion from "../components/levels/LevelAccordion";
 
 export default function Course() {
   let { id } = useParams();
@@ -51,7 +52,7 @@ export default function Course() {
           <p>Your learning path</p>
           <LearningPlanCard learningPlan={learningPlan} />
         </div>
-        {levels && levels.length > 0 ? (
+        {/* {levels && levels.length > 0 ? (
           levels.map((level, index) => (
             <div key={index}>
               <h1>{level?.title}</h1>
@@ -65,7 +66,8 @@ export default function Course() {
           ))
         ) : (
           <p>No levels</p>
-        )}
+        )} */}
+        <LevelAccordion levels={levels}/>
       </div>
       <div></div>
       <div></div>

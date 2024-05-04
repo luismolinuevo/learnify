@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import "../../styles/daily.css";
 import { useState } from "react";
+import { createLearningPlan } from "../../lib/learningplan";
 
 export default function Daily() {
     const [activeStyles, setActiveStyles] = useState([]);
@@ -36,7 +37,7 @@ export default function Daily() {
         "Group setting", "With illustrations", "Concepts", "Real world experience", "Step-by-step"
     ];
 
-    function selectActiveStyle(e) {
+    function selectActiveStyleAndSet(e) {
         let style = e.target.innerText;
         let styles;
         if (activeStyles.includes(style)) {
@@ -49,6 +50,7 @@ export default function Daily() {
             };
         };
         setActiveStyles(styles);
+        sessionStorage.setItem("styles", styles);
         console.log(activeStyles);
     };
 
@@ -58,6 +60,19 @@ export default function Daily() {
 
     function setDeadLine(e) {
         sessionStorage.setItem("deadline", e.target.value);
+    };
+
+    async function submitLearningPlan() {
+        const plan = {
+            skill: sessionStorage.getItem("topics"),
+            skillLevel: sessionStorage.getItem("level"),
+            dailyHours: (sessionStorage.get("daily") / 60).toString(),
+            deadline: sessionStorage.getItem("deadline"),
+            whyLearn: sessionStorage.getItem("reasons"),
+            learningStyle: sessionStorage.getItem("styles")
+        };
+
+        await createLearningPlan(plan);
     };
 
     return (
@@ -92,7 +107,7 @@ export default function Daily() {
                         learningStyles.slice(0, 6).map((style, i) => {
                             return (
                                 <div
-                                    onClick={selectActiveStyle}
+                                    onClick={selectActiveStyleAndSet}
                                     key={i}
                                     className={activeStyles.includes(style) ? "learningStyle active" : "learningStyle"}
                                 >
@@ -107,7 +122,7 @@ export default function Daily() {
                         learningStyles.slice(6).map((style, i) => {
                             return (
                                 <div
-                                    onClick={selectActiveStyle}
+                                    onClick={selectActiveStyleAndSet}
                                     key={i + 10}
                                     className={activeStyles.includes(style) ? "learningStyle active" : "learningStyle"}
                                 >
@@ -121,6 +136,7 @@ export default function Daily() {
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
                     href="/auth/signup/success"
+                    onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{
                         height: "0.7em", transform: "translateY(-1px)"

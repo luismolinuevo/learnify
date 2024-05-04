@@ -70,7 +70,7 @@ export default function Daily() {
             dailyHours: (sessionStorage.getItem("daily") / 60).toString(),
             deadline: sessionStorage.getItem("deadline"),
             whyLearn: sessionStorage.getItem("reasons"),
-            learningStyle: sessionStorage.getItem("styles")
+            learningStyle: sessionStorage.getItem("styles").split(",")
         };
 
         const data = await createLearningPlan(plan);
@@ -138,8 +138,8 @@ export default function Daily() {
                 <a
                     className="continue"
                     // style={{ pointerEvents: !active.includes(true) || search == "" || searchError ? "none" : "" }}
-                    // href="/auth/signup/success"
-                    onClick={submitLearningPlan}
+                    href="/auth/signup/success"
+                    // onClick={submitLearningPlan}
                     >
                     Continue <ArrowForwardIcon sx={{
                         height: "0.7em", transform: "translateY(-1px)"

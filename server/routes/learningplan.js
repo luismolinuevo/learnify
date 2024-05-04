@@ -5,5 +5,6 @@ const router = Router();
 
 router.post("/generatelearningplan", learningplanControllers.generateLearningPlan);
 router.post("/learningplan", learningplanControllers.createLearningPlan);
+router.get("/learningplan/:planId", learningplanControllers.getLearningPlan);
 
 export default router;

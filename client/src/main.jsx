@@ -10,6 +10,8 @@ import Daily from './components/signupFields/daily.jsx';
 import Success from './components/signupFields/success.jsx';
 import Layout from "./pages/Layout.jsx";
 
+import Course from "./pages/Course.jsx";
+
 const router = createBrowserRouter([
     {
         path: "/auth",

@@ -5,7 +5,7 @@ const router = Router();
 
 router.post("/levels/:planId", levelsControllers.createLevels);
 router.get("/levels/:planId", levelsControllers.getLevels);
+router.put("/sublevel/:sublevelId", levelsControllers.editSubLevel);
 router.get("/sublevel/:sublevelId", levelsControllers.getSubLevel);
-router.put("/levels/:planId", levelsControllers.editSubLevel);
 
 export default router;

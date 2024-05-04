@@ -1,0 +1,23 @@
+* {
+    margin: 20px 0;
+}
+.community-card {
+    height: 400px;
+    width: 300px;
+    border: 1px solid #9D76E9;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.card-context {
+    color: "#47B2C0";
+}
+
+.card-image {
+    margin: 2rem auto;
+    border-radius: 50px;
+    background-color: #9D76E9;
+    height: 75px;
+    width: 75px;
+}

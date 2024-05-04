@@ -72,6 +72,10 @@ export const createLearningPlan = async (data) => {
 
     const generatedPlanData = await generatedPlanResponse.json();
 
+    const levels = {
+        levels: generatedPlanData
+    };
+    
     // Step 2: Create the learning plan in the database
     const createPlanResponse = await fetch(
       `${import.meta.env.VITE_PUBLIC_BACKEND_URL}/api/learningplan/`,
@@ -80,7 +84,7 @@ export const createLearningPlan = async (data) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(generatedPlanData.learningplan),
+        body: JSON.stringify(data),
       }
     );
 

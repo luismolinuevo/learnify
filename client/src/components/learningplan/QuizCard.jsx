@@ -7,7 +7,7 @@ import "../../styles/QuizCard.css"
 export default function QuizCard({ levels }) {
   return (
     <div className="quiz-card-container">
-      <h1>Quizz</h1>
+      <h1>Quiz</h1>
       <div>
         {levels.map((level, index) => (
           <div key={index} className="quiz-card-level">

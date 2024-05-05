@@ -47,6 +47,7 @@ function LevelAccordion({ levels }) {
                     <Link
                       to={`/sublevel/${sublevel?.id}`}
                       className="sublevel-title"
+                      style={{fontSize: "0.8em"}}
                     >
                       {sublevel.title}
                     </Link>

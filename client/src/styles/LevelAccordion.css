@@ -10,18 +10,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
     cursor: pointer;
   }
   
   .accordion-title {
-    font-size: 2em;
     color: #BDC1CA;
     flex: 1;
+    font-size: 1.2em;
   }
   
   .accordion-icon {
     font-size: 20px;
+    color: rgb(99, 98, 98);
   }
   
   /* .expanded .accordion-icon {
@@ -35,15 +35,16 @@
   .sublevel {
     display: flex;
     align-items: center;
-    padding-bottom: 1.5em;
+    padding: 0.3em;
+    
   }
   
   .sublevel span {
     margin-right: 5px;
+    transform: translateY(-0.6em);
   }
   
   .sublevel-title {
-    font-size: 1.4em;
     margin-left: 5px;
     color: black;
     text-decoration: none;

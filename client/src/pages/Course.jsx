@@ -8,6 +8,7 @@ import "../styles/LearningPlan.css";
 import DateCalendarValue from "../components/general/Calendar";
 import QuizCard from "../components/learningplan/QuizCard";
 import ProjectCard from "../components/learningplan/ProjectCard";
+import BoltIcon from '@mui/icons-material/Bolt';
 
 export default function Course() {
   let { id } = useParams();
@@ -53,8 +54,8 @@ export default function Course() {
     <div className="learning-plan">
       <div>
         <div className="plan-section">
-          <div>
-            <p>Your learning path</p>
+          <div style={{marginBottom: "0.5em"}}>
+            <p style={{fontWeight: "600", marginBottom: "0.5em"}}>Your learning path</p>
             <LearningPlanCard learningPlan={learningPlan} />
           </div>
         </div>
@@ -63,7 +64,7 @@ export default function Course() {
       <div className="plan-section">
         <div>
           <DateCalendarValue />
-          <p className="streak">4 day streak!!!</p>
+          <p className="streak"><BoltIcon sx={{transform: "translateY(0.25em)"}} />4 day streak</p>
         </div>
       </div>
       <div className="plan-section course-quiz">

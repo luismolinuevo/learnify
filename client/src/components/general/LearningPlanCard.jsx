@@ -36,11 +36,11 @@ export default function LearningPlanCard({ learningPlan }) {
   } else {
     return (
       <div className="learningCardContainer">
-        <h1>{learningPlan.skill}</h1>
-        <h2>{learningPlan.levelCount ? learningPlan.levelCount : 2} levels</h2>
-        <h3>
+        <h2>{learningPlan.skill}</h2>
+        <h3>{learningPlan.levelCount ? learningPlan.levelCount : 2} levels</h3>
+        <h4>
           {learningPlan.dailyHours}h / {learningPlan.deadline} Weeks
-        </h3>
+        </h4>
         <div className="bottomRow">
           <div className="skillLevel">
             <svg

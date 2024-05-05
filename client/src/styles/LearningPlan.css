@@ -21,7 +21,7 @@
 .plan-section {
     width: 33.3%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .course-quiz {
@@ -41,8 +41,8 @@
     justify-content: end;
 }
 .plan-progress {
-    height: 300px;
-    width: 300px;
+    height: 20em;
+    width: 18em;
 }
 
 .streak {

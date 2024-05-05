@@ -18,16 +18,15 @@
 
 .learningplan-container {
     display: flex;
-    gap: 2.5em;
+    gap: 1em;
 }
 .add-plan-icon {
     color: #47B2C0;
-    font-size: 70px;
+    font-size: 2em;
 }
 
 .add-plan p {
     color: #47B2C0;
- 
 }
 
 .add-plan {
@@ -36,12 +35,11 @@
 }
 .learningplan-section {
     display: flex; 
+    align-items: center;
     margin-bottom: 3em;
     /* gap: 0em; */
 }
 
-.more-button-container {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+.more-button {
+    font-size: 1em;
 }
